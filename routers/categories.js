@@ -2,14 +2,14 @@ const express =require('express');
 const router=express.Router();
 const {Category}=require('../models/category');
 
-router.get(`/`, async (req, res) =>{
+router.get(`/get`, async (req, res) => {
     const categoryList = await Category.find();
 
-    if(!categoryList){
-        res.status(500),json({success: false})
+    if (!categoryList) {
+        res.status(500).json({ success: false });
     }
-    res.status(500).send(categoryList);
-})
+    res.status(200).send(categoryList);
+});
 
 router.get(`/:id`, async (req, res) =>{
     const category = await Category.findById(req.params.id);

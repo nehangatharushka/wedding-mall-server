@@ -1,5 +1,4 @@
 const express =require('express');
-const { Category } = require('../models/category');
 const {Product}=require('../models/product');
 const router=express.Router();
 const mongoose =require('mongoose');
@@ -47,6 +46,7 @@ router.get(`/`, async (req, res) =>{
     }
     res.send(productList);
 })
+
 
 router.get(`/:id`, async (req, res) =>{
 
